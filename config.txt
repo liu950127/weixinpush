@@ -1,0 +1,21 @@
+{
+# 公众号配置
+# 公众号appId
+"app_id": "wx6431ba18ad2eeb46",
+# 公众号appSecret
+"app_secret": "8472c3ba08580dad8fc46af8c65e21c9",
+# 模板消息id
+"template_id": "nf__8H0LY1rPIWmaxgioyriQ3OSCQdxtAXrXSsD4DXg",
+# 接收公众号消息的微信号，如果有多个，需要在[]里用英文逗号间隔，例如["weixin1", "weixin2"]
+"user": ["oUBNt5hwWY7CQXTgoq-Pjj2wqbhg", "oUBNt5kt-Fdlst5XeiL6Rq3yVuq8"],
+ 
+# 信息配置
+# 和风天气apikey
+"weather_key": "e1d15e9092804e598b5d078f4b0d2275",
+# 所在地区，可为省，城市，区，县，同时支持国外城市，例如伦敦
+"region": "合肥",
+# 生日1，修改名字为对应需要显示的名字，如果生日为农历，在最前面加上r即可
+r"birthday1": {"name": "亲爱的", "birthday": "1995-11-08"},
+# 在一起的日子，格式同上，暂不不支持农历
+"love_date": "2018-10-08",
+}
