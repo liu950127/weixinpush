@@ -60,7 +60,7 @@ def get_weather(region):
     #wind_dir = response["now"]["windDir"]
     return weather, temp
    
-   def get_yweather(region):
+def get_yweather(region):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
                       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
