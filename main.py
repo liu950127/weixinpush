@@ -88,7 +88,7 @@ def get_yweather(region):
     # 风向
     # wind_dir = response["now"]["windDir"]
     return yweather, ytemp
- 
+
 def get_birthday(birthday, year, today):
     birthday_year = birthday.split("-")[0]
     # 判断是否为农历生日
