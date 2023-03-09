@@ -10,7 +10,7 @@
 
 气温：{{temp.DATA}} 
 
-明天天气：{{ywind_dir.DATA}} 
+明天天气：{{yweather.DATA}} 
 
 明天气温：{{ytemp.DATA}}
 
