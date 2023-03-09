@@ -173,8 +173,12 @@ def send_message(to_user, access_token, region_name, weather, temp, yweather, yt
                 "value": temp,
                 "color": get_color()
             },
-            "wind_dir": {
-                "value": wind_dir,
+            "yweather": {
+                "value": yweather,
+                "color": get_color()
+            },
+            "ytemp": {
+                "value": ytemp,
                 "color": get_color()
             },
             "love_day": {
