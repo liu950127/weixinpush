@@ -131,7 +131,7 @@ def get_birthday(birthday, year, today):
  
  
  
-def send_message(to_user, access_token, region_name, weather, temp, wind_dir):
+def send_message(to_user, access_token, region_name, weather, temp, yweather, ytemp):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     year = localtime().tm_year
@@ -229,9 +229,9 @@ if __name__ == "__main__":
     users = config["user"]
     # 传入地区获取天气信息
     region = config["region"]
-    weather, temp, wind_dir = get_weather(region)
+    weather, temp = get_weather(region)
 
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, region, weather, temp, wind_dir)
+        send_message(user, accessToken, region, weather, temp, yweather, ytemp )
     os.system("pause")
