@@ -87,7 +87,7 @@ def get_weather(region):
     ytemp = response["now"]["temp"] + u"\N{DEGREE SIGN}" + "C"
     # 风向
     #wind_dir = response["now"]["windDir"]
-    return yweather, ytemp, 
+    return yweather, ytemp
  
  
 def get_birthday(birthday, year, today):
