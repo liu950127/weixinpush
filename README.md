@@ -10,7 +10,9 @@
 
 气温：{{temp.DATA}} 
 
-风向：{{wind_dir.DATA}} 
+明天天气：{{ywind_dir.DATA}} 
+
+明天气温：{{ytemp.DATA}}
 
 今天是我们在一起的第{{love_day.DATA}}天 
 
