@@ -230,6 +230,7 @@ if __name__ == "__main__":
     # 传入地区获取天气信息
     region = config["region"]
     weather, temp = get_weather(region)
+    yweather, ytemp = get_yweather(region)
 
     # 公众号推送消息
     for user in users:
