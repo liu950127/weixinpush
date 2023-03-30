@@ -30,7 +30,6 @@ def get_access_token():
     # print(access_token)
     return access_token
  
- 
 def get_weather(region):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
@@ -50,44 +49,17 @@ def get_weather(region):
     else:
         # 获取地区的location--id
         location_id = response["location"][0]["id"]
-    weather_url = "https://devapi.qweather.com/v7/weather/now?location={}&key={}".format(location_id, key)
+    weather_url = "https://devapi.qweather.com/v7/weather/3d?location={}&key={}".format(location_id, key)
     response = get(weather_url, headers=headers).json()
-    # 天气
-    weather = response["now"]["text"]
+    # 今日天气
+    weather = response["daily"][0]["textDay"]
     # 当前温度
-    temp = response["now"]["temp"] + u"\N{DEGREE SIGN}" + "C"
-    # 风向
-    # wind_dir = response["now"]["windDir"]
-    return weather, temp
- 
-def get_yweather(region):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
-    }
-    key = config["weather_key"]
-    region_url = "https://geoapi.qweather.com/v2/city/lookup?location={}&key={}".format(region, key)
-    response = get(region_url, headers=headers).json()
-    if response["code"] == "404":
-        print("推送消息失败，请检查地区名是否有误！")
-        os.system("pause")
-        sys.exit(1)
-    elif response["code"] == "401":
-        print("推送消息失败，请检查和风天气key是否正确！")
-        os.system("pause")
-        sys.exit(1)
-    else:
-        # 获取地区的location--id
-        location_id = response["location"][0]["id"]
-    weather_url = "https://devapi.qweather.com/v7/weather/now?location={}&key={}".format(location_id, key)
-    response = get(weather_url, headers=headers).json()
-    # 天气
-    yweather = response["now"]["text"]
-    # 当前温度
-    ytemp = response["now"]["temp"] + u"\N{DEGREE SIGN}" + "C"
-    # 风向
-    # wind_dir = response["now"]["windDir"]
-    return yweather, ytemp
+    temp = response["daily"][0]["tempMin"] + u"\N{DEGREE SIGN}" + "C" +"-"+ response["daily"][0]["tempMax"] + u"\N{DEGREE SIGN}" + "C"
+    # 明天天气
+    yweather = response["daily"][1]["textDay"]
+    # 明天温度
+    ytemp = response["daily"][1]["tempMin"] + u"\N{DEGREE SIGN}" + "C" +"-"+ response["daily"][1]["tempMax"] + u"\N{DEGREE SIGN}" + "C"
+    return weather, temp , yweather, ytemp
 
 def get_birthday(birthday, year, today):
     birthday_year = birthday.split("-")[0]
@@ -233,10 +205,10 @@ if __name__ == "__main__":
     users = config["user"]
     # 传入地区获取天气信息
     region = config["region"]
-    weather, temp = get_weather(region)
-    yweather, ytemp = get_yweather(region)
+    weather, temp, yweather, ytemp = get_weather(region)
+
 
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, region, weather, temp, yweather, ytemp )
+        send_message(user, accessToken, region, weather, temp, yweather, ytemp)
     os.system("pause")
