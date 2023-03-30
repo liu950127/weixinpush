@@ -4,11 +4,11 @@
 
 {{date.DATA}} 
 
-地区：{{region.DATA}} 
+窝点：{{region.DATA}} 
 
-天气：{{weather.DATA}} 
+今日天气：{{weather.DATA}} 
 
-气温：{{temp.DATA}} 
+今日气温：{{temp.DATA}} 
 
 明天天气：{{yweather.DATA}} 
 
